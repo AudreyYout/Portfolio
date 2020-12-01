@@ -1,0 +1,19 @@
+.l-outcome{
+  padding-bottom: rem(30);
+  p ~ p
+  {
+    margin-top: rem(8);
+  }
+
+  h2{
+    color:$color-text;
+    font-size: rem(20);
+    margin-bottom: rem(8);
+    font-weight: 500;
+  }
+
+  &__picture{
+   width: 100%;
+   height: auto;
+  }
+}

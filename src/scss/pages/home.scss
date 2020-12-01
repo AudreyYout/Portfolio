@@ -1,0 +1,59 @@
+
+
+.p-home {
+  &__about-picture {
+  width:auto;
+  height:rem(360);
+  background-image: url(../images/home/about-rect.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-top-right-radius: rem(0);
+  border-top-left-radius: rem(60);
+  border-bottom-right-radius: rem(60);
+  border-bottom-left-radius: rem(0);
+  margin-top: $space-lg;
+
+  @include MediaMin($breakpoint-xxs) {
+    height:$breakpoint-xxs;
+  }
+
+  @include MediaMin($breakpoint-xs) {
+    width:100%;
+    height:auto;
+    margin-top: 0;
+    width:100%;
+    background-position: top right -200px;
+  }
+
+  @include MediaMin($breakpoint-sm) {
+    width:auto;
+    margin-top: 0;
+    width:100%;
+    background-position: top right -100px;
+  }
+
+  }
+
+  &__about-content{
+    display:flex;
+    padding-left: $space-lg;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    .introduction {
+      padding-bottom: rem(30);
+      p {
+        margin-bottom: rem(8);
+      }
+      @include MediaMin($breakpoint-xs) {
+        padding-left: $space-xs;
+      }
+    }
+      @include MediaMin($breakpoint-md) {
+        padding-left: $space-lg;
+      }
+
+  }
+
+}

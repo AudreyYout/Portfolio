@@ -1,0 +1,38 @@
+//palette
+
+
+
+$color-primary:#F47E00;
+$color-primary-light:#f0902a;
+$color-primary-dark:#bb6203;
+$color-secondary:#2227A8;
+$color-secondary-dark:#0A06B7;
+$color-ternary:#0e0e11;
+$color-ternary-badge:#7b7b7c;
+
+$color-gradient-1:#FFF;
+$color-gradient-2:#18181d;
+$color-gradient-3:#8492A6;
+$color-gradient-4:#C0CCDA;
+$color-gradient-5:#E5E9F2;
+$color-gradient-6:#F9FAFC;
+
+$color-swatch-1:#FFF;
+$color-swatch-2:#1CE1AC;
+$color-swatch-3:#FF7D50;
+$color-swatch-4:#FF007F;
+$color-swatch-5:#8338EC;
+$color-swatch-6:#FFBE0B;
+
+
+$color-border:#18181D;
+
+$color-hover:$color-ternary-badge;
+$color-bg: $color-gradient-1;
+$color-link: $color-primary;
+$color-accent: $color-secondary;
+$color-dark: darken($color-primary, 20%);
+$color-text: $color-ternary;
+$color-text-light: $color-swatch-1;
+$color-text-light: $color-swatch-1;
+$color-text-extra-light: lighten($color-gradient-6, 85%);

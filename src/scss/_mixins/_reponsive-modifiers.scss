@@ -1,0 +1,13 @@
+@mixin ResponsiveModifiers($name, $prefix: '&.', $suffix: '') {
+  #{ $prefix }#{ $name }#{ $suffix } {
+    @content;
+  }
+
+  @each $breakpoint in $breakpoint-modifiers {
+    @include MediaMin(nth($breakpoint, 1)) {
+      #{ $prefix }#{ $name }#{ nth($breakpoint, 2) }#{ $suffix } {
+        @content;
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+.g-grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+
+  @include GridGutter($space-md);
+  @include GridModifiers();
+
+  @each $breakpoint in $breakpoint-modifiers {
+    @include MediaMin(nth($breakpoint, 1)) {
+      @include GridModifiers(nth($breakpoint, 2));
+    }
+  }
+
+  & > * {
+    flex: 0 1 auto;
+    min-width: 0;
+    max-width: 100%;
+    flex-basis: 100%;
+
+    @include GridItemModifiers();
+
+    @each $breakpoint in $breakpoint-modifiers {
+      @include MediaMin(nth($breakpoint, 1)) {
+        @include GridItemModifiers(nth($breakpoint, 2));
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+.l-page {
+    width: auto;
+    display: block;
+  &-wrapper{
+    max-width: $breakpoint-xxxs;
+    margin: 0 auto;
+
+
+    @include MediaMin($breakpoint-xxs) {
+      max-width: rem(470);
+      margin: 0 auto;
+    }
+    @include MediaMin($breakpoint-xs) {
+      max-width: $breakpoint-xxs;
+      margin: 0 auto;
+    }
+
+    @include MediaMin($breakpoint-sm) {
+      max-width: rem(710);
+      margin: 0 auto;
+    }
+
+    @include MediaMin($breakpoint-md) {
+      max-width: $breakpoint-sm;
+      margin: 0 auto;
+    }
+  }
+}

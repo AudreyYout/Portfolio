@@ -1,0 +1,29 @@
+ $breakpoint-xxxs: rem(320) !default;
+ $breakpoint-xxs: rem(550) !default;
+ $breakpoint-xs:  rem(600) !default;
+ $breakpoint-sm:  rem(800) !default;
+ $breakpoint-md:  rem(1000) !default;
+ $breakpoint-lg:  rem(1200) !default;
+ $breakpoint-xl:  rem(1400) !default;
+ $breakpoint-xxl: rem(1600) !default;
+
+ $breakpoint-navigation:  $breakpoint-md;
+ $breakpoint-datalist:  $breakpoint-md; /* DEPRECATED - LEGACY 0.48.0 */
+
+ $breakpoint-modifiers:
+   $breakpoint-xxs \@xxs,
+   $breakpoint-xs \@xs,
+   $breakpoint-sm \@sm,
+   $breakpoint-md \@md,
+   $breakpoint-lg \@lg,
+   $breakpoint-xl \@xl,
+   $breakpoint-xxl \@xxl !default;
+
+ $breakpoints:
+   $breakpoint-xxs xxs,
+   $breakpoint-xs xs,
+   $breakpoint-sm sm,
+   $breakpoint-md md,
+   $breakpoint-lg lg,
+   $breakpoint-xl xl,
+   $breakpoint-xxl xxl !default;

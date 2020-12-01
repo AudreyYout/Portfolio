@@ -1,0 +1,47 @@
+
+.m-detail{
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+  z-index: 0;
+  background-color: $color-ternary;
+  color: $color-text-light;
+  display:flex;
+  padding: $space-lg;
+  height: 100%;
+  flex-direction: column;
+  @include MediaMin($breakpoint-xxs) {
+    padding: $space-md;
+  }
+  @include MediaMin($breakpoint-xs) {
+    padding: $space-lg;
+  }
+
+  & > * {
+    // Fix ie11 bug
+    max-width: 100%;
+  }
+
+    h3 {
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: $font-size-md;
+      padding-bottom: $space-sm;
+    }
+
+    li{
+      font-weight: 300;
+      font-size: rem(14);
+      line-height: rem(20);
+      position: relative;
+    }
+ // -------------------------
+  //    Shapes
+  // -------------------------
+  &.as--shape10 {
+    border-bottom-left-radius: rem(60);
+  }
+  &.as--shape11{
+    border-top-right-radius: rem(60);
+  }
+}

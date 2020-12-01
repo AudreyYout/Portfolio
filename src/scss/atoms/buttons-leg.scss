@@ -1,0 +1,194 @@
+.a-button {
+  @include ButtonBase ();
+  @include ButtonColor(
+    $background: white,
+    $background-hover: white,
+    $border-color-hover: $color-primary,
+    $border-color: $color-border,
+    $color-contextual: $color-text,
+    $color: $color-text,
+    $color-focus-effect: $color-primary,
+  );
+
+  @include ButtonFocusSelectors {
+    @include FocusEffect();
+  }
+
+  html body &.as--square {
+    padding-left: 0;
+    padding-right: 0;
+    overflow: hidden;
+  }
+
+  &.as--block {
+    display: block;
+    width: 100%;
+  }
+
+  &.as--rounded {
+    font-family: $font-family-base;
+    border-radius: $border-radius-rounded;
+  }
+
+  // -------------------------
+  //    Colors
+  // -------------------------
+  &.as--link {
+    @include ButtonColor($color: $color-primary, $background: transparent);
+  }
+
+  &.as--link-alt {
+    @include ButtonColor($color: $color-text, $background: transparent);
+  }
+
+  &.as--link,
+  &.as--link-alt {
+    text-decoration: underline;
+
+    @include ButtonHoverSelectors() {
+      text-decoration: none;
+      box-shadow: none;
+    }
+
+    @include ButtonFocusSelectors() {
+      @include FocusEffect();
+    }
+
+    & > * {
+      &::after {
+        display: inline-block;
+      }
+    }
+  }
+
+  &.as--primary {
+    @include ButtonColor(
+      $background: $color-primary,
+      $border-color: transparent,
+      $color: $color-gradient-1,
+    );
+  }
+
+  &.as--secondary {
+    @include ButtonColor(
+      $background: $color-primary-light,
+      $border-color: transparent,
+      $color: $color-gradient-1,
+      $color-contextual: $color-text,
+      $color-contextual-hover: $color-primary,
+      $color-focus-effect: $color-primary
+    );
+  }
+
+  &.as--social-media {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:rem(9);
+    width:rem(49);
+    height: rem(49);
+    border: rem(2) solid $color-primary;
+    border-radius: rem(6);
+    transition: all 150ms ease;
+    background-color: $color-gradient-1;
+
+    svg {
+      width: rem(27);
+      height: rem(27);
+    }
+
+    &:hover,
+    &:focus {
+      border: rem(2) solid $color-ternary-badge;
+      box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.5);
+      transform: scale(0.95);
+      svg {
+        fill: $color-ternary-badge;
+       }
+    }
+
+  }
+
+
+
+
+
+
+
+
+  // -------------------------
+  //    Sizes
+  // -------------------------
+  &.as--xs {
+    @include ButtonSize($space-xxs/2, $space-xxs, $font-size-xs);
+  }
+
+  &.as--sm {
+    @include ButtonSize($space-xxs, $space-sm, $font-size-sm);
+  }
+
+  &.as--lg {
+    font-weight: 300;
+
+    @include ButtonSize($space-xs, $space-lg, $font-size-lg);
+  }
+
+  &.as--xl {          /* DEPRECATED - LEGACY 0.42.3 */
+    font-weight: 300; /* DEPRECATED - LEGACY 0.42.3 */
+    @include ButtonSize($space-sm, $space-lg, $font-size-xl); /* DEPRECATED - LEGACY 0.42.3 */
+  }
+
+  // Min Width
+  @include ResponsiveModifiers('as--min-width-xxs') {
+    min-width: $size-xxs;
+  }
+
+  @include ResponsiveModifiers('as--min-width-xs') {
+    min-width: $size-xs;
+  }
+
+  @include ResponsiveModifiers('as--min-width-sm') {
+    min-width: $size-sm;
+  }
+
+  @include ResponsiveModifiers('as--min-width-md') {
+    min-width: $size-md;
+  }
+
+  @include ResponsiveModifiers('as--min-width-lg') {
+    min-width: $size-lg;
+  }
+
+  @include ResponsiveModifiers('as--min-width-xl') {
+    min-width: $size-xl;
+  }
+
+  @include ResponsiveModifiers('as--min-width-xxl') {
+    min-width: $size-xxl;
+  }
+
+  // -------------------------
+  //    Contextual
+  // -------------------------
+  html body &.as--contextual {
+    background: none !important;
+    border: none !important;
+    box-shadow: none;
+    padding: $space-xxs $space-sm;
+    line-height: 1rem;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -$space-sm;
+      left: -$space-xxs;
+      right: -$space-xxs;
+      bottom: -$space-sm;
+    }
+  }
+
+  // -------------------------
+  //    Disabled
+  // -------------------------
+  @include ButtonDisabledSelectors();
+}

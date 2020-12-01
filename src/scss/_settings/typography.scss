@@ -1,0 +1,30 @@
+//$font-path: '/statics/fonts' !default;
+
+
+$font-family-base: 'Poppins', 'Helvetica Neue',Helvetica, Arial, sans-serif !default;
+$font-family-title: 'Poppins', 'Helvetica Neue',Helvetica, Arial, sans-serif !default;
+
+$line-height: 1.5;
+$font-size-xxs:  rem(9) !default;  // Extra extra small
+$font-size-xs:   rem(10.5) !default; // Extra small
+$font-size-sm:   rem(12.25) !default; // Small
+$font-size-ms:   rem(14) !default; // Medium small
+$font-size-md:   rem(16) !default; // Medium
+$font-size-ml:   rem(18) !default; // Medium large
+$font-size-lg:   rem(22) !default; // Large
+$font-size-xl:   rem(30.25) !default; // Extra large
+$font-size-xxl:  rem(42.25) !default; // Extra extra large
+
+$font-size-primary-title: rem(25) !default;
+
+$font-sizes: (
+  xxs: $font-size-xxs,
+  xs: $font-size-xs,
+  sm: $font-size-sm,
+  ms: $font-size-ms,
+  md: $font-size-md,
+  ml: $font-size-ml,
+  lg: $font-size-lg,
+  xl: $font-size-xl,
+  xxl: $font-size-xxl
+);

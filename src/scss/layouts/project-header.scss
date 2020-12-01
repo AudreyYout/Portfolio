@@ -1,0 +1,83 @@
+.l-project-header{
+  background-color: blueviolet;
+  color:$color-ternary;
+  max-width:100%;
+  background-color: $color-bg;
+  padding-top: rem(115);
+  padding-bottom: rem(100);
+
+  p{
+    margin-bottom: rem(12);
+  }
+
+    &__description {
+      max-width: rem(400);
+      margin-bottom: rem(19);
+
+
+
+      h1 {
+        font-weight:700;
+        position: relative;
+        margin-bottom: rem(50);
+
+        @include MediaMin($breakpoint-xs) {
+          margin-bottom: rem(50);
+        }
+      }
+
+      #design-system {
+        &::after {
+          content: '';
+          position: absolute;
+          background-color:$color-ternary;
+          width:rem(30);
+          height: rem(3);
+          border-radius: $border-radius-lg;
+          top:rem(104);
+          left:0;
+          @include MediaMin($breakpoint-xxs) {
+            top:rem(144);
+          }
+          @include MediaMin($breakpoint-xs) {
+            top: rem(104);
+          }
+        }
+      }
+    }
+
+    &__image{
+
+      @include MediaMin($breakpoint-xs) {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+      }
+    }
+    &__image-shaper {
+      overflow: hidden;
+      position: relative;
+      width: $size-card-md;
+      height: auto;
+      z-index: 0;
+      margin-top: $space-lg;
+
+      @include MediaMin($breakpoint-xxs) {
+        width: $size-card-xs;
+        height: $size-card-xs;
+        margin-top: 0;
+      }
+
+      @include MediaMin($breakpoint-xs) {
+        width: $size-card-md;
+        height: auto;
+      }
+
+      @include MediaMin($breakpoint-sm) {
+        width: $size-card-md;
+        height: auto;
+        padding-left: 10%;
+      }
+
+    }
+}

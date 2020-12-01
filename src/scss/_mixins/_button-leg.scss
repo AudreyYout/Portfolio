@@ -1,0 +1,168 @@
+
+@mixin ButtonHoverSelectors() {
+  a:hover &,
+  button:hover &,
+  &:hover,
+  a:focus &,
+  button:focus &,
+  &:focus,
+  a:active &,
+  button:active &,
+  &:active {
+    &:not(.as--loading) {
+      @content;
+    }
+  }
+}
+@mixin ButtonFocusSelectors() {
+  a:focus &,
+  button:focus &,
+  &:focus {
+    &:not(.as--loading) {
+      @content;
+    }
+  }
+}
+
+@mixin ButtonColor(
+  $background: $color-secondary,
+  $color: contrast($background),
+  $border-color: darken($background, 5%),
+  $color-hover: $color,
+  $background-hover: $color-ternary-badge,
+  $border-color-hover: $color-ternary-badge,
+  $color-contextual: $background,
+  $color-contextual-hover: $color-ternary-badge,
+  $color-focus-effect: $background
+) {
+  color: $color;
+  background-color: $background;
+  border-color: $border-color;
+
+  @include ButtonHoverSelectors() {
+    color: $color-hover;
+    background-color: $background-hover;
+    border-color: $border-color-hover;
+    box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.5);
+    transform: scale(0.95);
+  }
+
+  @include ButtonFocusSelectors {
+    @include FocusEffect($color-focus-effect);
+  }
+
+  html body &.as--contextual {
+    color: $color-contextual;
+
+    @include ButtonHoverSelectors() {
+      color: $color-contextual-hover;
+    }
+
+    @include ButtonFocusSelectors() {
+      @include FocusEffect();
+    }
+
+    &.as--loading::after {
+      color: $color-contextual;
+    }
+  }
+
+  &.as--loading {
+    @include ButtonLoading();
+
+    &::after {
+      color: $color;
+    }
+  }
+}
+
+@mixin ButtonSize($padding-vertical, $padding-horizontal, $font-size: $font-size-md) {
+  padding: $padding-vertical $padding-horizontal;
+  font-size: $font-size;
+
+  html body &.as--square {
+    height: $padding-vertical * 2 + $font-size * $line-height + rem(2);
+    width: $padding-vertical * 2 + $font-size * $line-height + rem(2);
+  }
+}
+
+@mixin ButtonBase() {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  text-align: center;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  font-weight: normal;
+  border: $size-border solid transparent;
+  border-radius: $border-radius-md;
+  white-space: normal;
+  transition: .2s;
+  user-select: none;
+  min-width: 1em;
+  outline: none;
+  text-decoration: none;
+  line-height: rem(27.2);
+
+  &:focus,
+  &:active,
+  &:active:focus {
+    outline: 0;
+    background-image: none;
+  }
+  @include ButtonSize($space-sm, $space-lg, $font-size-ml);
+  @include ButtonColor($color: $color-text, $color-contextual: $color-text-light);
+}
+
+@mixin ButtonLoading () {
+  pointer-events: none;
+  position: relative;
+  cursor: progress;
+  color: transparent !important;
+}
+
+@mixin ButtonDisabled() {
+  cursor: not-allowed;
+  pointer-events: none;
+  box-shadow: none;
+  color: rgba(0, 0, 0, .2) !important;
+  transform: translate3d(0, 0, 0); // Fix: Rendering disabled buttons on Chrome for Android (bug)
+
+  // Loader
+  &::after {
+    color: rgba(0, 0, 0, .2) !important;
+  }
+
+  &:not(.as--contextual):not(.as--link):not(.as--link-alt) {
+    background:
+    $color-primary repeating-linear-gradient(
+        -45deg,
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0) rem(2),
+        rgba(0, 0, 0, 0.02) rem(2),
+        rgba(0, 0, 0, 0.02) rem(4)
+      ) !important;
+    border-color: rgba(0, 0, 0, .1) !important;
+  }
+
+  &.as--contextual,
+  &.as--link,
+  &.as--link-alt {
+    text-decoration: line-through !important;
+  }
+}
+
+@mixin ButtonDisabledSelectors() {
+  [disabled] &,
+  .as--disabled &,
+  &.as--disabled,
+  &[disabled] {
+    @include ButtonDisabled();
+
+    @content;
+  }
+}

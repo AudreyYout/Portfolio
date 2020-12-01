@@ -1,0 +1,153 @@
+.l-home-header{
+  width:100%;
+  padding-bottom: rem(16);
+  color:$color-swatch-1;
+  height: 80vh;
+
+  @include MediaMin(768px) {
+    height: 70vh;
+  }
+  @include MediaMin(900px) {
+    height: 60vh;
+  }
+  @include MediaMin(1080px) {
+    height: 80vh;
+  }
+  @include MediaMin(1280px) {
+    height: 90vh;
+  }
+  @include MediaMin(1366px) {
+    height: 90vh;
+  }
+  @include MediaMin(1440px) {
+    height: 80vh;
+  }
+
+  &.as-image {
+    background-color: $color-primary;
+    background-image: url(../images/home/hero1.png);
+    background-repeat: no-repeat;
+    background-position: top right -200px;
+    background-size: cover;
+    @include MediaMin(640px) {
+      background-position: top right rem(0);
+    }
+    @include MediaMin(768px) {
+      background-position: top right -250px;
+    }
+    @include MediaMin(800px) {
+      background-position: top right rem(0);
+    }
+    @include MediaMin(900px) {
+      background-position: top right rem(0);
+    }
+    @include MediaMin(1080px) {
+      background-position: top right rem(0);
+    }
+
+  }
+
+  &.as-light{
+    background-color: $color-ternary;
+  }
+
+  &-container {
+    position: relative;
+    height: 80vh;
+
+    @include MediaMin(768px) {
+      height: 70vh;
+    }
+
+    @include MediaMin(900px) {
+      height: 60vh;
+    }
+
+    @include MediaMin(1080px) {
+      height: 80vh;
+    }
+    @include MediaMin(1280px) {
+      height: 90vh;
+    }
+    @include MediaMin(1366px) {
+      height: 90vh;
+    }
+    @include MediaMin(1440px) {
+      height: 80vh;
+    }
+  }
+
+  &-intro {
+    position:absolute;
+    text-align: left;
+    max-width: 100%;
+    top: 50%; /* poussé de la moitié de hauteur du référent */
+    transform: translateY(-50%);
+    display:flex;
+    flex-direction: column;
+
+    @include MediaMin($breakpoint-xxs) {
+      max-width: 85%;
+    }
+
+    @include MediaMin($breakpoint-xs) {
+      max-width: 70%;
+    }
+
+    @include MediaMin($breakpoint-sm) {
+      max-width: 55%;
+    }
+
+    p {
+      color:$color-text-light;
+    }
+
+    &__header {
+      color: $color-text-light;
+      padding-bottom: rem(30);
+
+      h1 {
+        margin-top: rem(16);
+        font-size: rem(59);
+        font-weight: bold;
+      }
+
+      h2 {
+        margin-top: rem(20);
+        font-size: rem(28);
+        color: $color-text-light;
+        font-weight:500;
+        color: $color-text-light;
+      }
+
+      span {
+        color:$color-text-light;
+        font-weight:500;
+      }
+    }
+
+    &__side {
+      padding-top: rem(30);
+      position: relative;
+      &:before {
+        content: '';
+        position: absolute;
+        width:rem(94);
+        height: rem(3);
+        border-radius: $border-radius-lg;
+        top:0;
+        left:0;
+        background-color: rgba($color-text-light, 0.7);
+      }
+
+      strong {
+        color:$color-text-light;
+        font-weight: 500;
+      }
+
+      a {
+        margin-top: rem(30);
+      }
+    }
+  }
+}

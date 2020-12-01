@@ -1,0 +1,318 @@
+@mixin CardShape (
+  $border-top-right-radius: rem(0),
+  $border-top-left-radius: rem(0),
+  $border-bottom-right-radius: rem(0),
+  $border-bottom-left-radius: rem(0),
+) {
+  border-top-right-radius: $border-top-right-radius;
+  border-top-left-radius: $border-top-left-radius;
+  border-bottom-right-radius: $border-bottom-right-radius;
+  border-bottom-left-radius: $border-bottom-left-radius;
+  h3 {
+    color:inherit;
+  }
+  p {
+    color:inherit;
+  }
+}
+
+.m-card {
+  overflow: hidden;
+  position: relative;
+  width: $size-card-md;
+  height: $size-card-md;
+  z-index: 0;
+
+  @include MediaMin($breakpoint-xxs) {
+    width: $size-card-xs;
+    height: $size-card-xs;
+  }
+
+  @include MediaMin($breakpoint-xs) {
+    width: $size-card-sm;
+    height: $size-card-sm;
+  }
+
+  @include MediaMin($breakpoint-sm) {
+    width: $size-card-xs;
+    height: $size-card-xs;
+  }
+
+  @include MediaMin($breakpoint-md) {
+    width: $size-card-sm;
+    height: $size-card-sm;
+  }
+
+  & > * {
+    // Fix ie11 bug
+    max-width: 100%;
+  }
+
+  h3 {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: $font-size-lg;
+    padding-bottom: $space-sm;
+  }
+
+  h4 {
+    font-weight: 600;
+    font-size: $font-size-md;
+    padding-top: $space-sm;
+    max-width: rem(200);
+    line-height: rem(20);
+  }
+
+  &__thumbnail-picture {
+    width: auto;
+    height: $size-card-md!important;
+    overflow: hidden;
+
+    @include MediaMin($breakpoint-xxs) {
+      height: $size-card-xs!important;
+    }
+
+    @include MediaMin($breakpoint-xs) {
+      height: $size-card-sm!important;
+    }
+
+    @include MediaMin($breakpoint-sm) {
+      height: $size-card-xs!important;
+    }
+
+    @include MediaMin($breakpoint-md) {
+      height: $size-card-sm!important;
+    }
+
+    img {
+      width: auto!important;
+      height: $size-card-md!important;
+
+      @include MediaMin($breakpoint-xxs) {
+        height: $size-card-xs!important;
+      }
+
+      @include MediaMin($breakpoint-xs) {
+        height: $size-card-sm!important;
+      }
+
+      @include MediaMin($breakpoint-sm) {
+        height: $size-card-xs!important;
+      }
+
+      @include MediaMin($breakpoint-md) {
+        height: $size-card-sm!important;
+      }
+
+    }
+  }
+
+
+  &__overlay{
+    width:100%;
+    height:100%;
+    right: 0;
+    position: absolute;
+    top:0;
+    background-color: $color-ternary;
+    opacity: 0.7;
+    z-index: 2;
+    -webkit-transition: 0.25s ease-in-out;
+    -moz-transition: 0.25s ease-in-out;
+    -o-transition: 0.25s ease-in-out;
+    transition: 0.25s ease-in-out;
+  }
+
+  &__content {
+    width:100%;
+    height:100%;
+    right: 0;
+    position: absolute;
+    top:0;
+    z-index: 2;
+    -webkit-transition: 0.25s ease-in-out;
+    -moz-transition: 0.25s ease-in-out;
+    -o-transition: 0.25s ease-in-out;
+    transition: 0.25s ease-in-out;
+  }
+
+  &__title {
+    width: 100%;
+    display:flex;
+    padding-left: $space-lg;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  &__description {
+    display:flex;
+    padding-left: $space-sm;
+    padding-right: $space-sm;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  // -------------------------
+  //    Hover
+  // -------------------------
+  @at-root {
+    a {
+      text-decoration: none;
+      -webkit-transition: 0.25s ease-in-out;
+      -moz-transition: 0.25s ease-in-out;
+      -o-transition: 0.25s ease-in-out;
+      transition: 0.25s ease-in-out;
+      &:hover,
+      &:focus {
+        color: $color-ternary-badge;
+        text-decoration: none;
+      }
+    }
+
+
+    a#{&}:hover &__overlay,
+    a#{&}:focus &__overlay,
+    a#{&}__overlay:hover,
+    a#{&}__overlay:focus {
+      opacity:1;
+    }
+
+    a#{&}:hover &__content,
+    a#{&}:focus &__content,
+    a#{&}__content:hover,
+    a#{&}__content:focus {
+      color: $color-primary;
+    }
+
+    a#{&}:hover .as--link,
+    a#{&}:focus .as--link,
+    a#{&}.as--link:hover,
+    a#{&}.as--link:focus {
+      box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.5);
+      transform: scale(0.95);
+
+    }
+
+    a#{&}:hover .as--disabled,
+    a#{&}:focus .as--disabled,
+    a#{&}.as--disabled:hover,
+    a#{&}.as--disabled:focus {
+      border: none!important;
+      pointer-events: none;
+      box-shadow: none;
+      transform: none;
+    }
+  }
+  &.as--disabled {
+    display: none;
+    @include MediaMin($breakpoint-sm) {
+      display:block;
+    }
+  }
+
+
+  // -------------------------
+  //    Colors
+  // -------------------------
+
+&.as--primary {
+  background-color: $color-bg;
+  border: rem(3) solid $color-primary;
+  color: $color-primary;
+  text-align: center;
+}
+
+  &.as--secondary {
+    background-color: $color-bg;
+    border: rem(3) solid $color-secondary;
+    color: $color-secondary;
+    text-align: center;
+  }
+
+  &.as--ternary {
+    background-color: $color-bg;
+    border: rem(3) solid $color-ternary;
+    color: $color-ternary;
+    text-align: center;
+    opacity:0.8;
+  }
+
+  &.as--link {
+    background-color: $color-ternary;
+    color: $color-text-light;
+  }
+
+}
+ // -------------------------
+  //    Shapes
+  // -------------------------
+
+  .as--shape1 {
+    @include CardShape(
+      $border-top-right-radius: rem(60),
+      $border-top-left-radius: rem(0),
+      $border-bottom-left-radius: rem(60),
+      $border-bottom-right-radius: rem(0),
+    );
+  }
+
+  .as--shape2{
+    @include CardShape(
+      $border-top-right-radius: 50%,
+      $border-top-left-radius: 50%,
+      $border-bottom-left-radius: 50%,
+      $border-bottom-right-radius: 50%,
+    );
+  }
+
+  .as--shape3{
+    @include CardShape(
+      $border-top-right-radius: 0,
+      $border-top-left-radius: rem(60),
+      $border-bottom-left-radius: 0,
+      $border-bottom-right-radius: 0,
+    );
+  }
+  .as--shape4{
+    @include CardShape(
+      $border-top-right-radius: 0,
+      $border-top-left-radius: 0,
+      $border-bottom-left-radius: 0,
+      $border-bottom-right-radius: rem(60),
+    );
+  }
+  .as--shape5{
+    @include CardShape(
+      $border-top-right-radius: rem(60),
+      $border-top-left-radius: 0,
+      $border-bottom-left-radius: 0,
+      $border-bottom-right-radius: 0,
+    );
+  }
+  .as--shape6{
+    @include CardShape(
+      $border-top-right-radius: 0,
+      $border-top-left-radius: 0,
+      $border-bottom-left-radius: 0,
+      $border-bottom-right-radius: 0,
+    );
+  }
+  .as--shape7{
+    @include CardShape(
+      $border-top-right-radius: 0,
+      $border-top-left-radius: 0,
+      $border-bottom-left-radius: 0,
+      $border-bottom-right-radius: rem(60),
+    );
+  }
+  .as--shape8{
+    @include CardShape(
+      $border-top-right-radius: 0,
+      $border-top-left-radius: 0,
+      $border-bottom-left-radius: rem(60),
+      $border-bottom-right-radius: rem(60),
+    );
+  }

@@ -1,0 +1,15 @@
+@include UtilDisplay();
+
+@each $breakpoint in $breakpoint-modifiers {
+  @include MediaMin(nth($breakpoint, 1)) {
+    @include UtilDisplay(nth($breakpoint, 2));
+  }
+}
+.vCenterRel {
+  position: relative;
+}
+.vCenter {
+  position: absolute;
+  top: 0;
+  transform: translateY(25%);
+}

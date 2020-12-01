@@ -1,0 +1,148 @@
+$a: 50%;
+
+.l-process{
+  a {
+   font-weight:400;
+  }
+  &__signal{
+    span {
+      position: relative;
+      display: block;
+      width: rem(60);
+      height: rem(60);
+      border-top-right-radius: 50%;
+      border-top-left-radius: 50%;
+      border-bottom-left-radius: 50%;
+      border-bottom-right-radius: 50%;
+      z-index: 1;
+
+      &::after {
+        display: block;
+        z-index: 2;
+        position: absolute;
+        top:rem(15);
+        left:rem(15);
+        content:'';
+        width: rem(30);
+        height: rem(30);
+        border-top-right-radius: 50%;
+        border-top-left-radius: 50%;
+        border-bottom-left-radius: 50%;
+        border-bottom-right-radius: 50%;
+      }
+      &.as--primary{
+        background-color: rgba(244,126,0,0.5);
+        &::after {
+          background-color: rgba(244,126,0,1);
+        }
+      }
+      &.as--secondary{
+        background-color: rgba(34,39,168,0.5);
+        &::after {
+          background-color: rgba(34,39,168,1);
+        }
+      }
+      &.as--ternary{
+        background-color: rgba(14,14,17,0.5);
+        &::after {
+          background-color: rgba(14,14,17,1);
+        }
+      }
+
+    }
+  }
+
+  &__label {
+    display:flex;
+    flex-direction: column;
+    padding-left:rem(8);
+    @include MediaMin($breakpoint-xs) {
+      padding-left:rem(16);
+    }
+    .category{
+      font-size:$font-size-sm;
+      text-transform: uppercase;
+      margin-bottom: rem(6);
+
+    }
+    .step{
+      font-size:$font-size-lg;
+      font-weight: 500;
+    }
+    &.as--primary{
+      color:$color-primary;
+    }
+    &.as--secondary{
+      color: $color-secondary;
+    }
+    &.as--ternary{
+      color: $color-ternary;
+    }
+  }
+
+  &__line {
+    min-width: rem(60);
+    padding-left: calc(#{$a} - 1px);;
+    height: 100%;
+    span {
+      display: block;
+      width: rem(2);
+      height: 100%;
+      &.as--primary{
+        background-color: $color-primary;
+      }
+      &.as--secondary{
+        background-color: $color-secondary;
+      }
+      &.as--ternary{
+        background-color: $color-ternary;
+      }
+    }
+  }
+
+  &__content{
+    padding-left:rem(8);
+    overflow-wrap: break-word;
+    width: 100%;
+    padding-top: rem(16);
+
+    @include MediaMin($breakpoint-xs) {
+      padding-left:rem(12);
+    }
+
+    li{
+      margin-top: rem(8);
+    }
+
+    h2{
+      color:$color-text;
+      font-size: rem(20);
+      margin-bottom: rem(8);
+      font-weight: 500;
+    }
+    p ~ p {
+      margin-top: rem(8);
+    }
+
+    &:last-child {
+      margin-bottom: rem(52);
+    }
+    .g-grid + h2{
+      margin-top: rem(52);
+    }
+  }
+
+  &__picture{
+   width: 100%;
+   border: rem(1) solid #f0f0f0;
+  }
+
+  .caption {
+    margin-top: rem(10);
+    width:100%;
+    font-size: rem(12);
+    font-weight: 300;
+    color: $color-ternary-badge;
+    font-style: italic;
+    }
+}

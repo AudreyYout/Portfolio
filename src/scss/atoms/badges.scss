@@ -1,0 +1,95 @@
+@mixin BadgeColor (
+  $background: $color-primary,
+  $border-color: $background,
+  $color: $color-text-light,
+) {
+  color: $color;
+  background: $background;
+  border: rem(1) solid $border-color;
+
+}
+
+.a-badge {
+  display: inline-block;
+  vertical-align: middle;
+  padding: .4em .8em;
+  margin-top: -.3em;
+  font-size: $font-size-sm;
+  line-height: 1;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: center;
+  white-space: nowrap;
+  border-radius: $border-radius-rounded;
+
+
+  html body &.as--text {
+    box-shadow: none;
+    background: none;
+    padding: 0;
+  }
+
+  &.as--start {
+    margin-right: .5em;
+  }
+
+  &.as--between {
+    margin-left: .5em;
+    margin-right: .5em;
+  }
+
+  &.as--end {
+    margin-left: .5em;
+  }
+
+  // -------------------------
+  //    Colors
+  // -------------------------
+  &.as--primary {
+    @include BadgeColor(
+      $background: $color-primary
+    );
+  }
+
+  &.as--secondary {                      /* DEPRECATED - LEGACY 0.42.3 */
+    @include BadgeColor(              /* DEPRECATED - LEGACY 0.42.3 */
+      $color: $color-text-light,        /* DEPRECATED - LEGACY 0.42.3 */
+      $background:$color-secondary,              /* DEPRECATED - LEGACY 0.42.3 */
+      $border-color: $color-secondary /* DEPRECATED - LEGACY 0.42.3 */    /* DEPRECATED - LEGACY 0.42.3 */
+    );
+  }
+
+  &.as--ternary {                      /* DEPRECATED - LEGACY 0.42.3 */
+    @include BadgeColor(              /* DEPRECATED - LEGACY 0.42.3 */
+      $color: $color-text-light,        /* DEPRECATED - LEGACY 0.42.3 */
+      $background:$color-ternary-badge,              /* DEPRECATED - LEGACY 0.42.3 */
+      $border-color: $color-ternary-badge /* DEPRECATED - LEGACY 0.42.3 */    /* DEPRECATED - LEGACY 0.42.3 */
+    );
+  }
+
+
+
+  // -------------------------
+  //    Sizes
+  // -------------------------
+  &.as--xs {
+    padding: $space-xxs/2 $space-xxs;
+    font-size: $font-size-xxs;
+  }
+
+  &.as--sm {
+    font-size: $font-size-xxs;
+  }
+
+  &.as--lg {
+    font-size: $font-size-sm;
+    font-weight: 600;
+    text-transform: none;
+  }
+
+  &.as--xl {
+    font-size: $font-size-md;
+    font-weight: 600;
+    text-transform: none;
+  }
+}

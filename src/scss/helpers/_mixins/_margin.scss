@@ -1,0 +1,31 @@
+@mixin UtilMargin($suffix, $size) {
+  .h-m-#{$suffix} {
+    margin: $size;
+  }
+
+  .h-mt-#{$suffix} {
+    margin-top: $size;
+  }
+
+  .h-mb-#{$suffix} {
+    margin-bottom: $size;
+  }
+
+  .h-ml-#{$suffix} {
+    margin-left: $size;
+  }
+
+  .h-mr-#{$suffix} {
+    margin-right: $size;
+  }
+
+  .h-mv-#{$suffix} {
+    margin-top: $size;
+    margin-bottom: $size;
+  }
+
+  .h-mh-#{$suffix} {
+    margin-left: $size;
+    margin-right: $size;
+  }
+}

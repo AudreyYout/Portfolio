@@ -1,0 +1,17 @@
+.l-footer{
+  width:100%;
+  padding-top: $space-md;
+  padding-bottom: $space-md;
+  color:$color-text-light;
+  background-color: black;
+  text-align: center;
+  a{
+    padding-left:rem(2)
+  }
+
+  span {
+    font-size: $font-size-xxs;
+    display:block;
+    padding-top:$space-xxs;
+  }
+}

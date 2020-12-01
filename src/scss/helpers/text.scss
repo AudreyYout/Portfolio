@@ -1,0 +1,77 @@
+// Text transform
+// -------------------------
+.h-text-uppercase {
+  text-transform: uppercase;
+}
+
+.h-text-lowercase {
+  text-transform: lowercase;
+}
+
+.h-text-capitalize {
+  text-transform: capitalize;
+}
+
+// Vertical align
+// -------------------------
+.h-text-middle {
+  vertical-align: middle;
+}
+
+// Long text
+// -------------------------
+
+.h-text-el {
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+// Text colors
+// -------------------------
+.h-text-success {
+  //color: $color-success-text;
+}
+
+.h-text-warning {
+  //color: $color-warning-text;
+}
+
+.h-text-danger {
+  //color: $color-danger-text;
+}
+
+.h-text-white {
+  //color: $color-brand-denim-100;
+}
+
+.h-text-primary {
+  //color: $color-primary;
+}
+
+.h-text-brand-primary {
+  //color: $color-brand-akane;
+}
+
+.h-text-light {
+  //color: $color-text-light;
+}
+
+//Text alignment
+// -------------------------
+@include UtilTextAlign();
+
+@each $breakpoint in $breakpoint-modifiers {
+  @include MediaMin(nth($breakpoint, 1)) {
+    @include UtilTextAlign(nth($breakpoint, 2));
+  }
+}
+
+// Text sizes
+//@each $size-label, $font-size in $font-sizes {
+  //.h-text-#{$size-label} {
+    //font-size: $font-size;
+  //}
+//}

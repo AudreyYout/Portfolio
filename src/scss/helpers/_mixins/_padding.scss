@@ -1,0 +1,31 @@
+@mixin UtilPadding($suffix, $size) {
+  .h-p-#{$suffix} {
+    padding: $size;
+  }
+
+  .h-pt-#{$suffix} {
+    padding-top: $size;
+  }
+
+  .h-pb-#{$suffix} {
+    padding-bottom: $size;
+  }
+
+  .h-pl-#{$suffix} {
+    padding-left: $size;
+  }
+
+  .h-pr-#{$suffix} {
+    padding-right: $size;
+  }
+
+  .h-pv-#{$suffix} {
+    padding-top: $size;
+    padding-bottom: $size;
+  }
+
+  .h-ph-#{$suffix} {
+    padding-left: $size;
+    padding-right: $size;
+  }
+}

@@ -1,0 +1,25 @@
+@mixin UtilDisplay ($suffix: '') {
+  .h-display-none#{$suffix} {
+    display: none;
+  }
+
+  .h-display-block#{$suffix} {
+    display: block;
+  }
+
+  .h-display-inline#{$suffix} {
+    display: inline;
+  }
+
+  .h-display-inline-block#{$suffix} {
+    display: inline-block;
+  }
+
+  .h-display-flex#{$suffix} {
+    display: flex;
+  }
+
+  .h-display-inline-flex#{$suffix} {
+    display: inline-flex;
+  }
+}
