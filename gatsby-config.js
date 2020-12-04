@@ -1,5 +1,4 @@
 module.exports = {
-  pathPrefix: `/Portfolio`,
 
   siteMetadata: {
     title: `Audrey Yout - UI/UX Designer`,

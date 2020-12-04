@@ -53,7 +53,7 @@ const Works = () => {
       <h1>Selected works</h1>
       <div className="g-grid as--gutter-sm  as--stretch">
         <div className="g-grid__item as--1_2@xxs as--1_3@sm">
-          <Card tag="a" className="as--link as--shape4" href="/designSystem" alt="Design System card">
+          <Card tag="a" className="as--link as--shape4" href="/design-system" alt="Design System card">
             <CardBackgroundImage>
               <Img fluid={data.designSystem.childImageSharp.fluid} />
             </CardBackgroundImage>
